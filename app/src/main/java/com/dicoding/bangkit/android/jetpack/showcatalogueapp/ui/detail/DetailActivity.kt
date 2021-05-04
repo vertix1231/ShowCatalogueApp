@@ -1,6 +1,5 @@
 package com.dicoding.bangkit.android.jetpack.showcatalogueapp.ui.detail
 
-import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +15,7 @@ class DetailActivity : AppCompatActivity() {
         const val EXTRA_DATA = "extra_data"
         const val EXTRA_TYPE = "extra_type"
     }
+
     private lateinit var binding: ActivityDetailBinding
     private lateinit var dataModelPojo: DataModelPojo
     private lateinit var detailViewModel: DetailViewModel
@@ -25,7 +25,10 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        detailViewModel = ViewModelProvider(this,ViewModelProvider.NewInstanceFactory())[DetailViewModel::class.java]
+        detailViewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.NewInstanceFactory()
+        )[DetailViewModel::class.java]
 
 
         //get intent from main activity fragment movie/tvshow depentt on type
@@ -50,10 +53,13 @@ class DetailActivity : AppCompatActivity() {
         binding.tvDetailName.text = dataModelPojo.name
         binding.tvDetailDesc.text = dataModelPojo.desc
         setImageWithGlide(this@DetailActivity, dataModelPojo.poster, binding.imgDetailPoster)
-        setImageWithGlide(this@DetailActivity, dataModelPojo.img_preview, binding.imgDetailHightlight)
+        setImageWithGlide(
+            this@DetailActivity,
+            dataModelPojo.img_preview,
+            binding.imgDetailHightlight
+        )
 
     }
-
 
 
     private fun setupToolbarTitle(title: String) {

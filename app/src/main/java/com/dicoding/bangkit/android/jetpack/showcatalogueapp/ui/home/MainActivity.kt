@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel = ViewModelProvider(this@MainActivity,ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this@MainActivity,
+            ViewModelProvider.NewInstanceFactory()
+        )[MainViewModel::class.java]
 
         setupNavBar()
     }
@@ -35,9 +38,15 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavbar.setNavigationChangeListener { view, _ ->
             when (view.id) {
-                R.id.nav_movie -> setActiveFragment(movieFragment, resources.getString(R.string.tab_title_movie))
+                R.id.nav_movie -> setActiveFragment(
+                    movieFragment,
+                    resources.getString(R.string.tab_title_movie)
+                )
 
-                R.id.nav_tvshow -> setActiveFragment(tvShowFragment, resources.getString(R.string.tab_title_tvshow))
+                R.id.nav_tvshow -> setActiveFragment(
+                    tvShowFragment,
+                    resources.getString(R.string.tab_title_tvshow)
+                )
             }
         }
     }

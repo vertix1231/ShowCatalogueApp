@@ -1,12 +1,11 @@
 package com.dicoding.bangkit.android.jetpack.showcatalogueapp.splashscreen
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
+import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.bangkit.android.jetpack.showcatalogueapp.R
 import com.dicoding.bangkit.android.jetpack.showcatalogueapp.ui.home.MainActivity
-import java.lang.Exception
 
 class SplashScreenShowtaimentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,13 +14,13 @@ class SplashScreenShowtaimentActivity : AppCompatActivity() {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_splash_screen_showtaiment)
 
-        val bekron = object : Thread(){
+        val bekron = object : Thread() {
             override fun run() {
                 try {
                     sleep(3000L)
                     val intensplash = Intent(baseContext, MainActivity::class.java)
                     startActivity(intensplash)
-                }catch (e : Exception){
+                } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }

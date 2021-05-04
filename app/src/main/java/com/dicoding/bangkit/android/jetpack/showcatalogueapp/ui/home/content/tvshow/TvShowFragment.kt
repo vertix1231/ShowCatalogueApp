@@ -34,7 +34,10 @@ class TvShowFragment : Fragment(), DataCallback {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         activity.let {
-            viewModel = ViewModelProvider(it!!, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
+            viewModel = ViewModelProvider(
+                it!!,
+                ViewModelProvider.NewInstanceFactory()
+            )[MainViewModel::class.java]
         }
         val listTvShow = viewModel.getListTvShow()
         setupRecyclerView(listTvShow)
@@ -62,9 +65,9 @@ class TvShowFragment : Fragment(), DataCallback {
 //        intent.putExtra(DetailActivity.EXTRA_TYPE,Helper.TYPE_TVSHOW)
 //        startActivity(intent)
         startActivity(
-                Intent(context, DetailActivity::class.java)
-                        .putExtra(DetailActivity.EXTRA_DATA, dataPojo.id)
-                        .putExtra(DetailActivity.EXTRA_TYPE, TYPE_TVSHOW)
+            Intent(context, DetailActivity::class.java)
+                .putExtra(DetailActivity.EXTRA_DATA, dataPojo.id)
+                .putExtra(DetailActivity.EXTRA_TYPE, TYPE_TVSHOW)
         )
     }
 

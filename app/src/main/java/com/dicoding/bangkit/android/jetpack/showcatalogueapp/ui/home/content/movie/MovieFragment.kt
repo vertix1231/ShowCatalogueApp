@@ -19,13 +19,14 @@ import com.dicoding.bangkit.android.jetpack.showcatalogueapp.ui.home.MainViewMod
 
 class MovieFragment : Fragment(), DataCallback {
 
-    private lateinit var mainViewModel : MainViewModel
+    private lateinit var mainViewModel: MainViewModel
     private lateinit var binding: FragmentMovieBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentMovieBinding.inflate(layoutInflater,container,false)
+        binding = FragmentMovieBinding.inflate(layoutInflater, container, false)
         val view = binding.root
         return view
     }
@@ -33,19 +34,22 @@ class MovieFragment : Fragment(), DataCallback {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         activity.let {
-            mainViewModel = ViewModelProvider(it!!,ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
+            mainViewModel = ViewModelProvider(
+                it!!,
+                ViewModelProvider.NewInstanceFactory()
+            )[MainViewModel::class.java]
         }
         val listmovie = mainViewModel.getListMovie()
         setupRecyclerView(listmovie)
     }
 
-    fun setupRecyclerView(data: List<DataModelPojo>){
+    fun setupRecyclerView(data: List<DataModelPojo>) {
         binding.rvMovie.apply {
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
             adapter = DataManagementAdapter(this@MovieFragment)
         }.also {
-            it.adapter.let {adapter ->
+            it.adapter.let { adapter ->
                 when (adapter) {
                     is DataManagementAdapter -> adapter.setData(data)
                 }
@@ -60,9 +64,9 @@ class MovieFragment : Fragment(), DataCallback {
 //        intent.putExtra(DetailActivity.EXTRA_TYPE,Helper.TYPE_TVSHOW)
 //        startActivity(intent)
         startActivity(
-                Intent(context, DetailActivity::class.java)
-                        .putExtra(DetailActivity.EXTRA_DATA, dataPojo.id)
-                        .putExtra(DetailActivity.EXTRA_TYPE, Helper.TYPE_MOVIE)
+            Intent(context, DetailActivity::class.java)
+                .putExtra(DetailActivity.EXTRA_DATA, dataPojo.id)
+                .putExtra(DetailActivity.EXTRA_TYPE, Helper.TYPE_MOVIE)
         )
     }
 }
