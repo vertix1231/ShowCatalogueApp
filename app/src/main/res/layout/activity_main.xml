@@ -22,11 +22,12 @@
         android:id="@+id/container_main_fragment"
         android:layout_width="0dp"
         android:layout_height="648dp"
+        android:layout_marginTop="16dp"
         android:background="#F5F5F5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/bottom_navbar" />
 
     <com.gauravk.bubblenavigation.BubbleNavigationLinearView
         android:id="@+id/bottom_navbar"
