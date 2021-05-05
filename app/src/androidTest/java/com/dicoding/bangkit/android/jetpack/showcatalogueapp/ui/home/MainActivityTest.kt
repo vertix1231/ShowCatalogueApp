@@ -24,10 +24,27 @@ class MainActivityTest : TestCase() {
     @get:Rule
     var activityRule = ActivityScenarioRule(MainActivity::class.java)
 
+    //framgent TVSHOW OK LAGI TEST
+    @Test
+    fun loadCoursesTvshow() {
+        onView(withId(R.id.nav_tvshow)).perform(click())
+        onView(withId(R.id.rv_tvshow)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyCourseTvshow.size))
 
+    }
+    @Test
+    fun loadModuleTvshow() {
+//        onView(withId(R.id.nav_tvshow)).perform(click())
+        onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.tv_detail_name)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_detail_name)).check(matches(withText(dummyCourseMovie[0].name)))
+        onView(withId(R.id.tv_detail_desc)).check(matches(isDisplayed()))
+        onView(withId(R.id.tv_detail_desc)).check(matches(withText(dummyCourseMovie[0].desc)))
+    }
     //framgent MOVIE OK LAGI TEST
     @Test
     fun loadCoursesMovie() {
+        onView(withId(R.id.nav_movie)).perform(click())
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyCourseMovie.size))
 
@@ -39,23 +56,6 @@ class MainActivityTest : TestCase() {
         onView(withId(R.id.tv_detail_name)).check(matches(withText(dummyCourseMovie[0].name)))
         onView(withId(R.id.tv_detail_desc)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_detail_desc)).check(matches(withText(dummyCourseMovie[0].desc)))
-    }
-
-    //framgent TVSHOW OK LAGI TEST
-    @Test
-    fun loadCoursesTvshow() {
-        onView(withId(R.id.rv_tvshow)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyCourseTvshow.size))
-
-    }
-    @Test
-    fun loadModuleTvshow() {
-        onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
-        onView(withId(R.id.tv_detail_name)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_detail_name)).check(matches(withText(dummyCourseMovie[0].name)))
-        onView(withId(R.id.tv_detail_desc)).check(matches(isDisplayed()))
-        onView(withId(R.id.tv_detail_desc)).check(matches(withText(dummyCourseMovie[0].desc)))
-
     }
 
 //    @Test
