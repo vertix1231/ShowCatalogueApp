@@ -8,10 +8,10 @@ class DetailViewModel : ViewModel() {
     private lateinit var movieId: String
     private lateinit var tvShowId: String
 
-    private fun getListMovie(): ArrayList<DataModelPojo> =
+    fun getListMovie(): ArrayList<DataModelPojo> =
         DataDummy.generateDataMovieDummy() as ArrayList<DataModelPojo>
 
-    private fun getListTvShow(): ArrayList<DataModelPojo> =
+    fun getListTvShow(): ArrayList<DataModelPojo> =
         DataDummy.generateDataTvShowDummy() as ArrayList<DataModelPojo>
 
     fun setMovieId(movieId: String) {

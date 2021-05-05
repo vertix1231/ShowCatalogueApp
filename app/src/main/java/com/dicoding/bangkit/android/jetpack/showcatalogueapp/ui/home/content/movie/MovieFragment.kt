@@ -59,10 +59,7 @@ class MovieFragment : Fragment(), DataCallback {
     }
 
     override fun onItemClicked(dataPojo: DataModelPojo) {
-//        val intent = Intent(context, DetailActivity::class.java)
-//        intent.putExtra(DetailActivity.EXTRA_DATA,dataPojo.id)
-//        intent.putExtra(DetailActivity.EXTRA_TYPE,Helper.TYPE_TVSHOW)
-//        startActivity(intent)
+
         startActivity(
             Intent(context, DetailActivity::class.java)
                 .putExtra(DetailActivity.EXTRA_DATA, dataPojo.id)
