@@ -31,6 +31,7 @@ class MainActivityTest : TestCase() {
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyCourseMovie.size))
 
+
     }
     @Test
     fun loadModuleMovie() {
