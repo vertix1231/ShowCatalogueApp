@@ -25,7 +25,7 @@ class MainActivityTest : TestCase() {
     var activityRule = ActivityScenarioRule(MainActivity::class.java)
 
 
-    //framgent MOVIE
+    //framgent MOVIE OK LAGI TEST
     @Test
     fun loadCoursesMovie() {
         onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
@@ -41,7 +41,7 @@ class MainActivityTest : TestCase() {
         onView(withId(R.id.tv_detail_desc)).check(matches(withText(dummyCourseMovie[0].desc)))
     }
 
-    //framgent TVSHOW
+    //framgent TVSHOW OK LAGI TEST
     @Test
     fun loadCoursesTvshow() {
         onView(withId(R.id.rv_tvshow)).check(matches(isDisplayed()))
