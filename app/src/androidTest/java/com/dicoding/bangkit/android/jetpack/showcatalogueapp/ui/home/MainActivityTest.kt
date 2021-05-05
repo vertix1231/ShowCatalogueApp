@@ -46,6 +46,7 @@ class MainActivityTest : TestCase() {
     fun loadCoursesTvshow() {
         onView(withId(R.id.rv_tvshow)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_tvshow)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyCourseTvshow.size))
+
     }
     @Test
     fun loadModuleTvshow() {
